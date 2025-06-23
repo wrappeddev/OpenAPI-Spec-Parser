@@ -1,0 +1,10 @@
+{
+  "rest_978hux_1750645468802": {
+    "id": "rest_978hux_1750645468802",
+    "name": "Swagger Petstore",
+    "protocol": "rest",
+    "source": "https://petstore.swagger.io/v2/swagger.json",
+    "discoveredAt": "2025-06-23T02:24:28.802Z",
+    "filePath": "rest_978hux_1750645468802.json"
+  }
+}

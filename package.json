@@ -1,0 +1,71 @@
+{
+  "name": "universal-api-schema-explorer",
+  "version": "1.0.0",
+  "description": "A universal tool for introspecting and exploring REST, GraphQL, and WebSocket APIs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "clean": "rimraf dist",
+    "cli": "ts-node src/cli.ts",
+
+    "install:all": "npm install && cd web-ui && npm install && cd backend && npm install",
+    "dev:web": "cd web-ui && npm run dev",
+    "dev:backend": "cd web-ui/backend && npm run dev",
+    "dev:full": "concurrently \"npm run dev:backend\" \"npm run dev:web\"",
+    "start:web": "cd web-ui && npm run build && npm run preview",
+    "start:backend": "cd web-ui/backend && npm start",
+    "start:full": "concurrently \"npm run start:backend\" \"npm run start:web\"",
+    "build:web": "cd web-ui && npm run build",
+    "test:web": "cd web-ui && npm test",
+    "lint:web": "cd web-ui && npm run lint",
+    "clean:all": "npm run clean && cd web-ui && rm -rf dist node_modules && cd backend && rm -rf node_modules"
+  },
+  "keywords": [
+    "api",
+    "schema",
+    "graphql",
+    "rest",
+    "websocket",
+    "introspection",
+    "openapi",
+    "swagger"
+  ],
+  "author": "Universal API Schema Explorer",
+  "license": "MIT",
+  "dependencies": {
+    "graphql": "^16.8.1",
+    "axios": "^1.6.2",
+    "ws": "^8.14.2",
+    "yaml": "^2.3.4",
+    "commander": "^11.1.0",
+    "chalk": "^4.1.2",
+    "inquirer": "^8.2.6",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/ws": "^8.5.10",
+    "@types/lodash": "^4.14.202",
+    "@types/inquirer": "^8.2.10",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/parser": "^6.13.1",
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2",
+    "rimraf": "^5.0.5",
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

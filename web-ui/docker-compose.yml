@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # Web UI Application
+  web-ui:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - BACKEND_PORT=3000
+    volumes:
+      - schemas_data:/app/schemas
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Development setup (alternative)
+  web-ui-dev:
+    build:
+      context: .
+      target: frontend-builder
+    ports:
+      - "5174:5174"  # Frontend
+      - "3001:3001"  # Backend
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/backend/node_modules
+    command: npm run dev:full
+    profiles:
+      - dev
+
+volumes:
+  schemas_data:
+    driver: local
