@@ -117,8 +117,8 @@ flowchart TD
 ### 2. Web Interface Architecture & Data Flow
 
 ```mermaid
-flowchart LR
-    subgraph "Frontend (React)"
+flowchart TB
+    subgraph Frontend["Frontend (React)"]
         A[Dashboard] --> B[Schema Cards]
         C[Introspect Page] --> D[Protocol Form]
         E[Schema Detail] --> F[Operations View]
@@ -127,19 +127,31 @@ flowchart LR
         I[Settings] --> J[Dark Mode Toggle]
     end
 
-    subgraph "Backend (Express.js)"
-        K[REST API Server] --> L[/api/schemas]
-        K --> M[/api/introspect]
-        K --> N[/api/status]
-        K --> O[/api/test]
+    subgraph Backend["Backend (Express.js)"]
+        K[REST API Server]
+        L[/api/schemas]
+        M[/api/introspect]
+        N[/api/status]
+        O[/api/test]
+        K --> L
+        K --> M
+        K --> N
+        K --> O
     end
 
-    subgraph "Core Engine (CLI)"
-        P[Protocol Connectors] --> Q[REST Connector]
-        P --> R[GraphQL Connector]
-        P --> S[WebSocket Connector]
-        T[Schema Storage] --> U[JSON Files]
-        T --> V[In-Memory Cache]
+    subgraph CoreEngine["Core Engine (CLI)"]
+        P[Protocol Connectors]
+        Q[REST Connector]
+        R[GraphQL Connector]
+        S[WebSocket Connector]
+        T[Schema Storage]
+        U[JSON Files]
+        V[In-Memory Cache]
+        P --> Q
+        P --> R
+        P --> S
+        T --> U
+        T --> V
     end
 
     A -.->|HTTP GET| L
@@ -151,9 +163,9 @@ flowchart LR
     L --> T
     N --> T
 
-    style A fill:#e3f2fd
-    style K fill:#e8f5e8
-    style P fill:#fff3e0
+    style Frontend fill:#e3f2fd
+    style Backend fill:#e8f5e8
+    style CoreEngine fill:#fff3e0
 ```
 
 ### 5. User Interaction Flow
@@ -262,26 +274,26 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    subgraph "Introspection Result"
+    subgraph IntrospectionResult["Introspection Result"]
         A[OpenAPI Spec] --> B[Parse Operations]
         A --> C[Parse Types/Schemas]
         A --> D[Extract Metadata]
     end
 
-    subgraph "Universal Schema Format"
+    subgraph UniversalFormat["Universal Schema Format"]
         E[Schema Object] --> F[id: string]
         E --> G[name: string]
         E --> H[protocol: REST/GraphQL/WS]
-        E --> I[operations: Operation[]]
-        E --> J[types: Record<string, Type>]
+        E --> I[operations: Operation array]
+        E --> J[types: Record string Type]
         E --> K[metadata: Metadata]
         E --> L[fullSpec: Original Spec]
     end
 
-    subgraph "Storage Layer"
+    subgraph StorageLayer["Storage Layer"]
         M[In-Memory Store] --> N[schemasStore Array]
         O[File System] --> P[./schemas/*.json]
-        Q[Export System] --> R[JSON Download]
+        Q[Export System] --> S[JSON Download]
     end
 
     B --> I
@@ -293,9 +305,9 @@ flowchart TD
     E --> O
     E --> Q
 
-    style E fill:#c8e6c9
-    style M fill:#e1f5fe
-    style O fill:#fff3e0
+    style UniversalFormat fill:#c8e6c9
+    style StorageLayer fill:#e1f5fe
+    style IntrospectionResult fill:#fff3e0
 ```
 
 ## 📁 Detailed Project Structure
