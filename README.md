@@ -2,7 +2,6 @@
 
 A comprehensive, multi-protocol API discovery and exploration platform that automatically introspects REST, GraphQL, and WebSocket APIs to generate unified schema documentation and interactive testing interfaces.
 
-![Universal API Schema Explorer](https://via.placeholder.com/1200x600/3B82F6/FFFFFF?text=Universal+API+Schema+Explorer)
 
 ## 🌟 Overview
 
@@ -583,12 +582,6 @@ echo $VITE_API_BASE_URL  # Should be http://localhost:3001
 - **Memory Usage**: Clear browser cache if experiencing slowdowns
 - **Network**: Use local OpenAPI specs for faster introspection during development
 
-## 📞 Support & Community
-
-- **📚 Documentation**: [Full Documentation](docs/)
-- **🐛 Bug Reports**: [GitHub Issues](https://github.com/your-username/universal-api-explorer/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/your-username/universal-api-explorer/discussions)
-- **🚀 Feature Requests**: [GitHub Issues](https://github.com/your-username/universal-api-explorer/issues/new?template=feature_request.md)
 
 ### Quick Links
 
