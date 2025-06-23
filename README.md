@@ -129,10 +129,10 @@ flowchart TB
 
     subgraph Backend["Backend (Express.js)"]
         K[REST API Server]
-        L[/api/schemas]
-        M[/api/introspect]
-        N[/api/status]
-        O[/api/test]
+        L["API: /schemas"]
+        M["API: /introspect"]
+        N["API: /status"]
+        O["API: /test"]
         K --> L
         K --> M
         K --> N
