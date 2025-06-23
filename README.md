@@ -11,7 +11,7 @@ The Universal API Schema Explorer is a modern, full-stack application designed t
 
 ```bash
 # Clone and start everything from the root directory
-git clone https://github.com/your-username/universal-api-explorer.git
+git clone https://github.com/wrappeddev/OpenAPI-Spec-Parser.git
 cd universal-api-explorer
 
 # Install all dependencies and start both frontend and backend
