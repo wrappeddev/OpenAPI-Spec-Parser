@@ -7,7 +7,6 @@ import {
   WifiIcon,
   ClockIcon,
   TagIcon,
-  EyeIcon,
   ArrowDownTrayIcon
 } from '@heroicons/react/24/outline';
 import { clsx } from 'clsx';
